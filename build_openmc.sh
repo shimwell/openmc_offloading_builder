@@ -86,7 +86,14 @@ rm -rf install
 mkdir build
 mkdir install
 cd build
-cmake --preset=${OPENMC_TARGET} -DCMAKE_INSTALL_PREFIX=../install -Doptimize=on -Ddevice_printf=off -Ddebug=${OPENMC_DEBUG_LINE_INFO} -Dcuda_thrust_sort=${OPENMC_NVIDIA_SORT} -Dsycl_sort=${OPENMC_INTEL_SORT} -Dhip_thrust_sort=${OPENMC_AMD_SORT} ..
+cmake --preset=${OPENMC_TARGET}\
+    -DCMAKE_INSTALL_PREFIX=../install\
+    -Doptimize=on\
+    -Ddevice_printf=off\
+    -Ddebug=${OPENMC_DEBUG_LINE_INFO}\
+    -Dcuda_thrust_sort=${OPENMC_NVIDIA_SORT}\
+    -Dsycl_sort=${OPENMC_INTEL_SORT}\
+    -Dhip_thrust_sort=${OPENMC_AMD_SORT} ..
 make VERBOSE=1 install
 
 fi
